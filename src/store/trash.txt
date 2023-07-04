@@ -1,0 +1,387 @@
+<><template>
+    <h3>CV Form</h3>
+    <div class="cv_container">
+        <div class="cv_title">
+            <h4 class="title">Pre Interview</h4>
+        </div>
+        <div class="reminder">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minima molestias repudiandae, facilis ut cum maiores soluta mollitia dignissimos ipsum at expedita deleniti, nulla ipsa commodi impedit cupiditate ullam consequatur?</p>
+        </div>
+        <div class="agrement">
+            <label for="agrement">Yes I Agree</label>
+            <input type="checkbox">
+            </></div>
+
+        <div class="photo_upload">
+            <label for="Photo">Photo</label>
+            <input type="file" accept="image/*">
+                <button /> @click="uploadPhoto">Upload Photo</button>
+        </div>
+
+        <div class="address">
+            <label for="address">Address</label>
+            <input type="text">
+            </></div>
+
+        <div class="select-box">
+            <div class="state">State / Region</div>
+            <div class="selected-option" /> @click="toggleDropdown">
+            <span>{{ selectedState }}</span>
+            <i class="arrow-down"></i>
+        </div>
+        <ul v-if="isDropdownOpen" class="dropdown-options">
+            <li v-for="state in states" /> :key="state" @click="selectState(state)">{{ state }}</li>
+    </ul>
+</div><div class="row weight&height">
+        <div class="weight">
+            <label for="weight">Weight</label>
+            <div class="weight_box">
+                <input type="number">
+                    <span>Lb</span>
+                </></div>
+        </div>
+        <div class="height">
+            <label for="height">Height</label>
+            <div class="height_box_feet">
+                <input type="number" name="" id="">
+                    <span>Ft</span>
+                </></div>
+            <div class="height_box_inches">
+                <input type="number">
+                    <span>Inches</span>
+                </></div>
+        </div>
+    </div><div class="education">
+        <div class="education_box"><p>Education</p></div>
+        <div class="selected-option" /> @click="toggleDropdown">
+        <span>{{ selectedState }}</span>
+        <i class="arrow-down"></i>
+    </div><ul v-if="isDropdownOpen" class="dropdown-options">
+        <li v-for="state in states" /> :key="state" @click="selectState(state)">{{ state }}</li></>
+        </ul>
+    </div>
+
+    <div class="experience">
+        <label for="experience">Experience</label>
+        <input type="text" name="experience" id="experience">
+    </div>
+
+    <div class="familytree">
+        
+        <label for="toggle">Do You Have Family Tree</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+  
+    </div>
+
+    <div class="howdoyouknowthis">
+        <label for="get_that_info">How Do You Know About This?</label>
+        <input type="text" name="get_that_info" id="get_that_info">
+    </div>
+
+    <div class="get_contact_box">
+        <label for="get_contact">How Do You Get Contact About That?</label>
+        <input type="text" name="get_contact" id="get_contact">
+    </div>
+
+    <div class="phoneno">
+        <label for="phone">Phone Number</label>
+        <div>
+            <p>+95</p>
+            <input type="number" name="phone" id="phone">
+        </div>
+    </div>
+
+    <div class="passporthave">
+        <label for="passport">Have Passport</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="passportcost">
+        <label for="passportcost">Passport Cost</label>
+        <input type="number" name="passportcost" id="passportcost">
+        <span>Kyats</span>
+    </div>
+
+    <div class="covid_vaccine">
+        <label for="passport">Vaccinated Covid-19 ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="colorblind">
+        <label for="passport">Can Distinguish Color ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="english_skill">
+        <label for="passport">English Skill?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="math_skill">
+        <label for="passport">Math Skill?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="can_wait">
+        <label for="passport">Can Wait ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="have_relatives_there">
+        <label for="passport">Have Any Relatives Over There ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="oversea_experience">
+        <label for="passport">Have Oversea Experience ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="any_cost_for_this">
+        <label for="passport">Any Cost For Applying That Job ?</label>
+        <div class="toggle-container">
+        <label class="toggle-label">
+            <input type="radio" id="yes" value="yes" v-model="selectedOption" />
+            Yes
+        </label>
+        <label class="toggle-label">
+            <input type="radio" id="no" value="no" v-model="selectedOption" />
+            No
+        </label>
+        </div>
+    </div>
+
+    <div class="row submit">
+        <div class="d-flex cancle">
+            <button class="canclebtn">Cancle</button>
+        </div>
+        <div class="d-flex go">
+            <button class="gobtn">Submit</button>
+        </div>
+    </div>
+
+
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+export default {
+    name: 'cvform',
+
+    setup() {
+    const selectedState = ref('');
+    const isDropdownOpen = ref(false);
+    const states = [
+    "Ayeyarwady",
+    "Bago",
+    "Chin",
+    "Kachin",
+    "Kayah",
+    "Kayin",
+    "Magway",
+    "Mandalay",
+    "Mon",
+    "Naypyidaw",
+    "Rakhine",
+    "Sagaing",
+    "Shan",
+    "Tanintharyi",
+    "Yangon"
+    ];
+
+    const toggleDropdown = () => {
+      isDropdownOpen.value = !isDropdownOpen.value;
+    };
+
+    const selectState = (state) => {
+      selectedState.value = state;
+      isDropdownOpen.value = false;
+    };
+
+    return {
+      selectedState,
+      isDropdownOpen,
+      states,
+      toggleDropdown,
+      selectState
+    };
+  }
+}
+</script>
+
+<style>
+    .select-box {
+  position: relative;
+}
+
+.selected-option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.arrow-down {
+  margin-left: 0.5rem;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dropdown-options li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-options li:hover {
+  background-color: #f2f2f2;
+}
+</style>
+
+
+
+
+____________________Image Upload from local code ____________________________
+
+<template>
+    <div class="container col-12 bg-danger">
+      <input type="file" ref="fileInput" @change="handleFileInputChange" />
+      <button @click="uploadPhoto">Upload</button>
+      <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Photo" />
+    </div>
+  </template>
+  
+  <script>
+  import { ref } from 'vue';
+  import { useStore } from 'vuex';
+  
+  export default {
+    setup() {
+      const fileInput = ref(null);
+      const imageUrl = ref(null);
+      const store = useStore();
+  
+      const handleFileInputChange = () => {
+        const file = fileInput.value.files[0];
+        const reader = new FileReader();
+  
+        reader.onload = (e) => {
+          imageUrl.value = e.target.result;
+        };
+  
+        reader.readAsDataURL(file);
+      };
+  
+      const uploadPhoto = () => {
+        // Dispatch the 'cvform/updateImage' action
+        store.dispatch('cvform/updateImage', imageUrl.value);
+      };
+  
+      return {
+        fileInput,
+        imageUrl,
+        handleFileInputChange,
+        uploadPhoto
+      };
+    }
+  };
+  </script>
+  
